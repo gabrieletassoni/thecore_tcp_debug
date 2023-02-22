@@ -1,0 +1,33 @@
+<div class="row tcp-debug">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><%=t :tcp_address_and_port%></span>
+    </div>
+    <input type="text" class="form-control" id="telnet-host" placeholder="Host" aria-label="Host">
+    <input type="text" class="form-control" id="telnet-port" placeholder="Port" aria-label="Port">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id="telnet" onclick="startTest(this)"><%=t :test_it %></button>
+    </div>
+  </div>
+</div>
+<div class="row tcp-debug">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><%=t :ping_address %></span>
+    </div>
+    <input type="text" class="form-control" id="ping-host" placeholder="Host" aria-label="Host">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id="ping" onclick="startTest(this)"><%=t :test_it%></button>
+    </div>
+  </div>
+</div>
+
+<div class="row tcp-debug-response">
+  <p id="response" class="response">
+  </p>
+</div>
+
+<div class="loader">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>

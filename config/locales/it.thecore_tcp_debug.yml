@@ -1,0 +1,15 @@
+it:
+  tcp_debug_telnet_ko: L'indirizzo di rete %{host} sulla porta %{port} non ha risposto prima del timeout, controllare che sia online e il servizio sulla porta indicata sia attivo.
+  tcp_debug_telnet_ok: L'indirizzo di rete %{host} sulla porta %{port} ha risposto correttamente.
+  tcp_debug_ping_ko: L'indirizzo di rete %{host} non risponde al ping.
+  tcp_debug_ping_ok: L'indirizzo di rete %{host} ha risposto correttamente al ping.
+  ping_address: Ping di un indirizzo
+  tcp_address_and_port: Test di una porta
+  test_it: Avvia il test
+  invalid_test: Il test richiesto non esiste fra quelli disponibili.
+  admin:
+    actions:
+      thecore_tcp_debug:
+        breadcrumb: Network Debug
+        menu: Network Debug
+        title: Network Debug

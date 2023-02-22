@@ -1,0 +1,15 @@
+en:
+  tcp_debug_telnet_ko: The network address %{host} on port %{port} did not respond before timeout, please check that it is online and the service on the indicated port is active.
+  tcp_debug_telnet_ok: The network address %{host} on port %{port} responded successfully.
+  tcp_debug_ping_ko: The network address %{host} is not responding to ping.
+  tcp_debug_ping_ok: The network address %{host} pinged successfully.
+  ping_address: Ping an address
+  tcp_address_and_port: TCP Port Test
+  test_it: Run the test
+  invalid_test: The requested test does not exist among those available.
+  admin:
+    actions:
+      tcp_debug:
+        breadcrumb: Network Debug
+        menu: Network Debug
+        title: Network Debug
