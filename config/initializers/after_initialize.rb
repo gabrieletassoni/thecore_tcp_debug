@@ -33,6 +33,8 @@ Rails.application.configure do
                         else
                             message, status = { debug_status: I18n.t("invalid_test", host: params["host"]) }, 400
                         end
+
+                        ActionCable.server.broadcast("messages", { topic: :tcp_debug, status: status, message: message})
                         render json: message.to_json, status: status  
                     end
                 end

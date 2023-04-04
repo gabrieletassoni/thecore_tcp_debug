@@ -9,13 +9,14 @@ $(document).on('turbo:load', function (event) {
         App.cable.subscriptions.create("ActivityLogChannel", {
             connected() {
                 console.log("Connected to the channel:", this);
-                this.send({ message: 'Client is live' });
+                this.send({ message: 'TCP Debug Client is live' });
             },
             disconnected() {
                 console.log("Disconnected");
             },
             received(data) {
-                console.log("Received some data:", data);
+                if(data["topic"] == "tcp_debug")
+                    console.log("TCP DEBUG", data);
             }
         });
 
