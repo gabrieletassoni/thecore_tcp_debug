@@ -1,12 +1,28 @@
 
 $(document).on('turbo:load', function (event) {
+    // Event
     currentURL = new URL(event.originalEvent.detail.url);
     if(currentURL.pathname.endsWith("tcp_debug")){
         hideLoader();
+
+        // Action cable Websocket
+        App.cable.subscriptions.create("ActivityLogChannel", {
+            connected() {
+                console.log("Connected to the channel:", this);
+                this.send({ message: 'Client is live' });
+            },
+            disconnected() {
+                console.log("Disconnected");
+            },
+            received(data) {
+                console.log("Received some data:", data);
+            }
+        });
+
+        $("#ping-host").keypress(function(event){if(event.keyCode == 13){$('#ping').click();}});
+        $("#telnet-host").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
+        $("#telnet-port").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
     }
-    $("#ping-host").keypress(function(event){if(event.keyCode == 13){$('#ping').click();}});
-    $("#telnet-host").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
-    $("#telnet-port").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
 });
 
 function hideLoader() {
