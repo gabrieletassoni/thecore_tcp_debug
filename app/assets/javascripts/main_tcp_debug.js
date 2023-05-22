@@ -48,9 +48,9 @@ function startTest(element) {
         port: port
     }).then(function (params) {
         // console.log("OK", params)
-        $("#response").html(params["debug_status"]).removeClass("bg-danger").addClass("bg-success");
+        $("#response").html(params["debug_status"]).removeClass("text-danger").addClass("text-success");
     }).catch(function (params) {
         // console.log("KO", params)
-        $("#response").html(params["responseJSON"]["debug_status"]).removeClass("bg-success").addClass("bg-danger");
+        $("#response").html(params["responseJSON"]["debug_status"]).removeClass("text-success").addClass("text-danger");
     }).always(hideLoader);
 }
