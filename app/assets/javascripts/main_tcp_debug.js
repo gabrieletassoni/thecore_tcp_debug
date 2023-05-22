@@ -1,29 +1,26 @@
 
 $(document).on('turbo:load', function (event) {
-    // Event
-    currentURL = new URL(event.originalEvent.detail.url);
-    if(currentURL.pathname.endsWith("tcp_debug")){
-        hideLoader();
+    hideLoader();
 
-        // Action cable Websocket
-        App.cable.subscriptions.create("ActivityLogChannel", {
-            connected() {
-                console.log("Connected to the channel:", this);
-                this.send({ message: 'TCP Debug Client is connected', topic: "tcp_debug", namespace: "subscriptions" });
-            },
-            disconnected() {
-                console.log("Disconnected");
-            },
-            received(data) {
-                if(data["topic"] == "tcp_debug")
-                    console.log("TCP DEBUG", data);
-            }
-        });
+    console.log("Into TCP Debug");
+    // Action cable Websocket
+    App.cable.subscriptions.create("ActivityLogChannel", {
+        connected() {
+            console.log("Connected to the channel:", this);
+            this.send({ message: 'TCP Debug Client is connected', topic: "tcp_debug", namespace: "subscriptions" });
+        },
+        disconnected() {
+            console.log("Disconnected");
+        },
+        received(data) {
+            if(data["topic"] == "tcp_debug")
+                console.log("TCP DEBUG", data);
+        }
+    });
 
-        $("#ping-host").keypress(function(event){if(event.keyCode == 13){$('#ping').click();}});
-        $("#telnet-host").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
-        $("#telnet-port").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
-    }
+    $("#ping-host").keypress(function(event){if(event.keyCode == 13){$('#ping').click();}});
+    $("#telnet-host").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
+    $("#telnet-port").keypress(function(event){if(event.keyCode == 13){$('#telnet').click();}});
 });
 
 function hideLoader() {
