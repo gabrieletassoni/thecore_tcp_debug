@@ -10,7 +10,7 @@ $(document).on('turbo:load', function (event) {
             this.send({ message: 'TCP Debug Client is connected', topic: "tcp_debug", namespace: "subscriptions" });
         },
         disconnected() {
-            console.log("Disconnected");
+            console.log("TCP Debug Client Disconnected");
         },
         received(data) {
             if(data["topic"] == "tcp_debug")
