@@ -1,2 +1,1 @@
-# thecore_tcp_debug
-Thecore and Rails Admin Module to conveniently test a TCP Port or by Ping from the Admin UI
+This is part of Thecore framework: https://github.com/gabrieletassoni/thecore/tree/release/3
