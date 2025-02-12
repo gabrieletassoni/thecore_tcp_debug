@@ -10,7 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3        
     - name: Publish to RubyGems
-      if: env.version_exists == 'false'
       run: |
         mkdir -p $HOME/.gem
         touch $HOME/.gem/credentials
