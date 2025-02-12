@@ -9,7 +9,7 @@ it:
   invalid_test: Il test richiesto non esiste fra quelli disponibili.
   admin:
     actions:
-      thecore_tcp_debug:
+      tcp_debug:
         breadcrumb: Network Debug
         menu: Network Debug
         title: Network Debug
